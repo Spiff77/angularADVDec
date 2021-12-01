@@ -8,7 +8,6 @@ import {Routes} from '@angular/router';
 
 
 const routes: Routes = [
-  {path : 'b-single', component: BComponent},
   {path : 'b1', component: B1Component}
 ]
 
