@@ -1,2 +1,8 @@
-<app-a></app-a>
-<app-b></app-b>
+<ul>
+  <li [routerLink]="['/']" >home</li>
+  <li [routerLink]="['/a/a-single']">A-single</li>
+  <li [routerLink]="['/a/a1']">A1</li>
+  <li [routerLink]="['/b/b-single']">B-single</li>
+  <li [routerLink]="['/b/b1']">B1</li>
+</ul>
+<router-outlet></router-outlet>
