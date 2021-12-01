@@ -2,12 +2,23 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.4.
 
-## Development server
 
  /a/a-alone --> Acomponent
  /a/a1 --> A1component
  /b/b-alone --> BComponent
  /b/b1 --> B1Component
+
+## PWA
+
+Installer http-server (`npm install -g http-server`)
+Ajouter pwa (`ng add @angular/pwa`)
+
+compiler (`ng build`)
+se placer dans le projet compilé (`dist/[project_name]`)
+lancer `http-server`
+
+Constater que le projet fonctionne sans server ou sans internet
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.

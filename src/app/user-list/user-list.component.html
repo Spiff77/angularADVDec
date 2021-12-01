@@ -1,0 +1,10 @@
+<ul>
+  <li *ngFor=" let u of $users | async">{{u.name}}</li>
+</ul>
+<ul>
+  <li *ngFor=" let p of $products | async">
+    <pre>
+    {{p | json}}
+    </pre>
+  </li>
+</ul>
