@@ -2,6 +2,8 @@ import {Component, Injector} from '@angular/core';
 import {FoodService} from './food.service';
 import {VehicleService} from './vehicle.service';
 import {TranslateService} from '@ngx-translate/core';
+import {from, interval, of, zip} from 'rxjs';
+import {concatMap, map, mergeMap, switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +18,10 @@ export class AppComponent {
     const lang = localStorage.getItem('lang') || 'fr'
     this.lang = lang
     this.translateService.setDefaultLang(lang)
+
   }
+
+
 
   changeLang(target: any) {
     localStorage.setItem('lang', target.value)

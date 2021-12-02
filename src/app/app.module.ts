@@ -6,11 +6,12 @@ import {BmModule} from './bm/bm.module';
 import {RouterModule, Routes} from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { UserListComponent } from './user-list/user-list.component';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {BasicInterceptor} from './basic.interceptor';
 
 const routes: Routes = [
   {path : 'a', loadChildren: () => import('./am/am.module').then( module => module.AmModule)},
@@ -47,7 +48,11 @@ export function HttpLoaderFactory(http:HttpClient){
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: BasicInterceptor,
+    multi: true,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
