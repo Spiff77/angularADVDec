@@ -2,6 +2,13 @@
   <li *ngFor=" let u of $users | async">{{u.name}}</li>
 </ul>
 <ul>
+  <li *ngFor=" let b of $breweries | async">
+    <pre>
+    {{b | json}}
+    </pre>
+  </li>
+</ul>
+<ul>
   <li *ngFor=" let p of $products | async">
     <pre>
     {{p | json}}

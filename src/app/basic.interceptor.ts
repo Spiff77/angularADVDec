@@ -14,8 +14,13 @@ export class BasicInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
+    if(!request.url.includes('api.openbrewerydb.org')){
+      return next.handle(request);
+    }
+
+    const lang = localStorage.getItem('lang') || 'fr'
     const newReq = request.clone({
-      url: request.url.replace('http', 'https')
+      url: request.url + '?by_country=' + ((lang === 'fr') ? 'France' : 'England')
     })
 
     return next.handle(newReq);
